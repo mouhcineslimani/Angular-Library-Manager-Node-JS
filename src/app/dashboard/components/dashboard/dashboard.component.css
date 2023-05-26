@@ -1,0 +1,14 @@
+.cards, .charts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.cards {
+  padding: 40px 60px 20px 60px;
+}
+
+.charts {
+  padding: 0px 60px 30px 60px;
+}

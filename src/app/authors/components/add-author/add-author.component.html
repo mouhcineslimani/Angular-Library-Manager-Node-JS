@@ -1,0 +1,38 @@
+<div class="container">
+  <form
+    id="contact"
+    class="form"
+    [formGroup]="authorForm"
+    (ngSubmit)="saveAuthor()"
+  >
+    <h3>Ajouter un auteur</h3>
+    <fieldset>
+      <input
+        placeholder="L'identifiant"
+        type="number"
+        tabindex="1"
+        autofocus
+        formControlName="Au_ID"
+      />
+    </fieldset>
+    <fieldset>
+      <input
+        placeholder="Le nom et prénom"
+        type="text"
+        tabindex="2"
+        formControlName="Author"
+      />
+    </fieldset>
+    <fieldset>
+      <input
+        placeholder="Année de naissance"
+        type="number"
+        tabindex="3"
+        formControlName="Year_Born"
+      />
+    </fieldset>
+    <fieldset>
+      <button name="submit" id="contact-submit">Ajouter</button>
+    </fieldset>
+  </form>
+</div>

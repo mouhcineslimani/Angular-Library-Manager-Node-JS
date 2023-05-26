@@ -1,0 +1,46 @@
+<div class="list-authors">
+  <div class="top-section">
+    <a routerLink="/authors/add" class="add-author">Ajouter</a>
+    <input
+      placeholder="Chercher un auteur ..."
+      class="search-zone"
+      [(ngModel)]="Author"
+      (change)="searchAuthors()"
+    />
+  </div>
+  <div class="title">
+    <h1>Liste des auteurs</h1>
+  </div>
+  <div class="main-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nom et prénom</th>
+          <th>Année de naissance</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="localAuthors.length == 0">
+        <tr>
+          <td colspan="4">Pas De données</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="localAuthors.length > 0">
+        <tr *ngFor="let author of localAuthors">
+          <td>{{ author.Au_ID }}</td>
+          <td>{{ author.Author }}</td>
+          <td>{{ author.Year_Born }}</td>
+          <td>
+            <button (click)="handleDelete(author)">
+              <img class="icon" src="../../../../assets/images/delete.png" />
+            </button>
+            <button [routerLink]="['/authors', author.Au_ID, 'edit']">
+              <img class="icon" src="../../../../assets/images/edit.png" />
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

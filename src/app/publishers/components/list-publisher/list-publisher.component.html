@@ -1,0 +1,48 @@
+<div class="list-publishers">
+  <div class="top-section">
+    <a routerLink="/publishers/add" class="add-publisher">Ajouter</a>
+    <input
+      placeholder="Chercher un éditeur ..."
+      class="search-zone"
+      [(ngModel)]="publisherName"
+      (change)="searchPublishers()"
+    />
+  </div>
+  <div class="title">
+    <h1>Liste des éditeurs</h1>
+  </div>
+  <div class="main-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nom et prénom</th>
+          <th>Entreprise</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="localPublishers.length == 0">
+        <tr>
+          <td colspan="4">Pas De données</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="localPublishers.length > 0">
+        <tr *ngFor="let publisher of localPublishers">
+          <td>{{ publisher.Publisher_ID }}</td>
+          <td>{{ publisher.Name | uppercase }}</td>
+          <td>{{ publisher.Company | slice : 0 : 20 | capitalize }}</td>
+          <td>
+            <button (click)="handleDelete(publisher)">
+              <img class="icon" src="../../../../assets/images/delete.png" />
+            </button>
+            <button
+              [routerLink]="['/publishers', publisher.Publisher_ID, 'edit']"
+            >
+              <img class="icon" src="../../../../assets/images/edit.png" />
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

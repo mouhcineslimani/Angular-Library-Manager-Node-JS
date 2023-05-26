@@ -1,0 +1,50 @@
+<div class="list-documents">
+  <div class="top-section">
+    <a routerLink="/documents/add" class="add-document">Ajouter </a>
+    <input
+      placeholder="Chercher un document ..."
+      class="search-zone"
+      [(ngModel)]="title"
+      (change)="searchDocuments()"
+    />
+  </div>
+  <div class="title">
+    <h1 appTruncateTitle>Liste des documents</h1>
+  </div>
+  <div class="main-section">
+    <table>
+      <thead>
+        <tr>
+          <th>ISBN</th>
+          <th>Titre</th>
+          <th>Date d'édition</th>
+          <th>Id d'éditeur</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="localDocuments.length == 0">
+        <tr>
+          <td colspan="5">Pas De données</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="localDocuments.length > 0">
+        <tr *ngFor="let document of localDocuments">
+          <td>{{ document.ISBN }}</td>
+          <td>
+            {{ document.Title }}
+          </td>
+          <td>{{ document.Year_Published }}</td>
+          <td>{{ document.Publisher_ID }}</td>
+          <td>
+            <button (click)="handleDelete(document)">
+              <img class="icon" src="../../../../assets/images/delete.png" />
+            </button>
+            <button [routerLink]="['/documents', document.ISBN, 'edit']">
+              <img class="icon" src="../../../../assets/images/edit.png" />
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

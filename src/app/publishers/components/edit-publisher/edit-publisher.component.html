@@ -1,0 +1,39 @@
+<div class="container">
+  <form
+    id="contact"
+    class="form"
+    [formGroup]="publisherForm"
+    (ngSubmit)="updatePublisher()"
+  >
+    <h3>Modifier des données d'un auteur</h3>
+    <fieldset>
+      <input
+        placeholder="L'identifiant"
+        type="number"
+        tabindex="1"
+        autofocus
+        formControlName="Publisher_ID"
+        readonly
+      />
+    </fieldset>
+    <fieldset>
+      <input
+        placeholder="Le nom et prénom"
+        type="text"
+        tabindex="2"
+        formControlName="Name"
+      />
+    </fieldset>
+    <fieldset>
+      <input
+        placeholder="Nom du l'entreprise"
+        type="text"
+        tabindex="3"
+        formControlName="Company"
+      />
+    </fieldset>
+    <fieldset>
+      <button name="submit" id="contact-submit">Modifier</button>
+    </fieldset>
+  </form>
+</div>

@@ -1,0 +1,26 @@
+<div class="sidebar">
+  <div class="title">
+    <h1>Bibliothèque</h1>
+  </div>
+  <a
+    routerLinkActive="active"
+    routerLink="dashboard"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Tableau de bord</a
+  >
+  <a routerLinkActive="active" routerLink="authors" (click)="changeValue(false)"
+    >Auteurs</a
+  >
+  <a
+    routerLinkActive="active"
+    routerLink="documents"
+    (click)="changeValue(false)"
+    >Documents</a
+  >
+  <a
+    routerLinkActive="active"
+    routerLink="publishers"
+    (click)="changeValue(false)"
+    >Editeurs</a
+  >
+</div>
